@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ForEman</title>
+    <style>
+      
+        .header-block {
+          display: flex;
+          align-items: flex-start;
+          background-color: #243c44;
+          color: white;
+          padding: 20px;
+          border-radius: 20px 20px 20px 20px;
+          margin: 20px 20px 0;
+          border: 2px solid #1FF928;
+        }
+        .header-blockP {
+          display: flex;
+          align-items: flex-start;
+          background-color: #243c44;
+          color: white;
+          border-radius: 20px 20px 20px 20px;
+          
+        }
+        
+        .text-columns {
+          display: flex;
+          flex-direction: column;
+          margin-left: 160px;
+        }
+        
+        .label {
+          margin-bottom: 10px;
+          margin-left: 30px;
+          font-size: 16px;
+        }
+        .labelP {
+          margin-bottom: 10px;
+          
+          font-size: 16px;
+        }
+        
+        .header-image,
+        .header-account {
+          margin-left: 160px;
+          max-width: 200px;
+          height: auto;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        
+        .account-text {
+          margin-top: 10px;
+          font-size: 14px;
+          text-align: center;
+        }
+
+
+        .caption {
+    text-align: center; /* Align the text in the center */
+    font-size: 24px;    /* Adjust font size as needed */
+    font-weight: bold;  /* Makes the caption bold */
+    margin-bottom: 20px; /* Add some space below the caption */
+}
+        .big-vertical-block {
+          border: 2px solid #1FF928;
+      display: flex;
+      flex-direction: column;
+     
+      background-color: #243c44;
+      color: white;
+      padding: 30px;
+      border-radius: 20px;
+      margin: 20px 20px 0;
+    }
+    
+    .extra-vertical-block {
+      display: flex;
+      flex-direction: column;
+     
+      background-color: #243c44;
+      color: white;
+      padding: 30px;
+      border-radius: 20px;
+      margin: 20px 20px 0;
+    }
+
+    .vertical-container {
+      display: flex;
+      flex-direction: row; /* Arrange blocks horizontally */
+    }
+
+    .form-row {
+    display: flex; /* Display items in a row */
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    
+}
+
+.form-row label {
+    flex: 0.6; /* Adjusted flex value for the label */
+    margin-right: 20px;
+    text-align: right;
+}
+
+.form-row select.custom-input {
+    flex: 0.4; /* Adjusted flex value for the select */
+    margin-right: 0.5rem; 
+}
+
+.form-row label {
+    flex: 0.6; /* This ensures label and input/select take equal space */
+    margin-right: 20px;
+    text-align: right;
+}
+ .form-row input {
+    flex: 0.4; /* equally share the space */
+    margin-right: 0.5rem; /* spacing between label and input */
+  }
+
+  .form-control {
+            border: 2px solid green;
+            border-radius: 25px;
+            padding: 10px 20px;
+            background-color: transparent;
+            outline: none;
+            color: green;
+            transition: 0.3s;
+        }
+
+        .form-control:focus {
+            box-shadow: 0 0 5px green;
+        }
+
+        .form-control:hover {
+            border-color: darkgreen;
+            color: darkgreen;
+        }
+
+        .btn-label {
+    width: 100%;
+    background-color:#2e505b;
+    margin-top: 20px;
+    display: block;
+    margin-bottom: 20px;
+    border-radius: 10px; /* add some space below the button */
+}
+
+#schematic {
+  width: 100%;
+  height: 100%;
+}
+
+
+.custom-input {
+    border: 2px solid green;
+    
+    
+    border-radius: 35px;    
+    background-color: transparent;
+    padding: 5px 10px;       /* Padding for better appearance */
+    outline: none;           /* Remove default focus style */
+    transition: 0.3s;       /* Smooth transition for hover and focus effects */
+}
+
+.custom-input:focus {
+    box-shadow: 0 0 5px green; /* Optional: Green glow on focus */
+}
+        
+
+.custom-btn {
+    display: inline-block;
+    padding: 0.5rem 1rem; /* Padding similar to Bootstrap */
+    font-size: 1rem; /* Font size similar to Bootstrap */
+    line-height: 1.5; /* Line height similar to Bootstrap */
+    border: 1px solid transparent; /* Transparent border */
+    border-radius: 30px; /* Custom border radius */
+    color: rgb(28, 227, 28); /* White text */
+    background-color: #2e505b; /* Grey background similar to Bootstrap's .btn-secondary */
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; /* Smooth transitions for hover and focus states */
+}
+
+.custom-btn:hover {
+    background-color: #5a6268; /* Slightly darker grey on hover */
+}
+.cell {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ccc;
+            text-align: center;
+            display: inline-block;
+        }
+        .filled {
+            background-color: #aaa;
+        }
+        .row {
+            clear: both;
+        }
+      </style>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Alex+Brush&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway+Dots|Stint+Ultra+Expanded&display=swap" rel="stylesheet">
+</head>
+
+<body>
+ 
+
+    <header>
+        <div class="header-block">
+          <img src="foreman.png" alt="Header Image" class="header-image">
+          <div class="text-columns">
+            <div class="label">Калькулятори</div>
+            <div class="label">Сервіс</div>
+            <div class="label">Контакти</div>
+          </div>
+          <div class="text-columns">
+            <div class="label">Середня вартість робіт</div>
+            <div class="label">Рейтинг підрядників</div>
+            <div class="label">Рейтинг постачальників</div>
+          </div>
+    
+          <div class="header-account">
+            <img src="account.png" alt="Account Image">
+            <div class="account-text">Вхід/реєстрація</div>
+          </div>
+        </div>
+      </header>
+  
+    
+   
+    
+    <main>
+        
+            <div class="row">
+              <div class="col-md-4">
+
+                <div class="big-vertical-block">
+                  <button type="button" class="btn-label">Паркет/Ламінат</button>
+
+                  <button type="button" class="btn-label">Приміщення</button>
+
+                  <div class="form-row">
+                    <label for="Lenght_of_the_room">Довжина кімнати(м.)</label>
+                    <input type="text" class="custom-input" id="Lenght_of_the_room" required>
+                </div>
+            
+                <div class="form-row">
+                    <label for="width_of_the_room">Ширина кімнати(м.)</label>
+                    <input type="text" class="custom-input" id="width_of_the_room" required>
+                </div>
+
+
+                  
+
+
+                  <button type="button" class="btn-label">Матеріал</button>
+                  <div class="form-row">
+                    <label for="Lenght_of_the_room">Довжина (м.)</label>
+                    <input type="text" class="custom-input" id="Lenght_of_the_block" required>
+                </div>
+            
+                <div class="form-row">
+                    <label for="width_of_the_room">Ширина (м.)</label>
+                    <input type="text" class="custom-input" id="width_of_the_block" required>
+                </div>
+
+                  <div class="form-row">
+                    <label for="width_of_the_room">упаковка(шт)</label>
+                    <input type="text" class="custom-input" id="pack" required>
+                </div>
+                <div class="form-row">
+                  <label for="width_of_the_room">ціна(грн/упаковка)</label>
+                  <input type="text" class="custom-input" id="priceForPack" required>
+              </div>
+
+
+
+                  <button type="button" class="btn-label">Правила укладки</button>
+                  
+                  <div class="form-row">
+                      <label for="Lenght_of_the_room">спосіб укладки</label>
+                      <select class="custom-input" id="Lay_Way">
+                        <option>по довжині</option>
+                        <option>по ширині</option> </select>
+                  </div>
+              
+                  <div class="form-row">
+                    <label for="Lenght_of_the_room">зміщення рядів(м.)</label>
+                    <input type="text" class="custom-input" id="Row_Bias" required>
+                </div>
+                <div class="form-row">
+                  <label for="Lenght_of_the_room">мінімальнв ширина ряду(м.)</label>
+                  <input type="text" class="custom-input" id="MinRowWidth" required>
+              </div>
+          
+              <div class="form-row">
+                  <label for="width_of_the_room">мінімальна довжина ряду(м.)</label>
+                  <input type="text" class="custom-input" id="MinRowLenght" required>
+              </div>
+
+
+              <button type="button" id="calculate" class="custom-btn">Розрахувати</button>
+              </div>
+                
+              </div>
+          
+              <div class="col-md-8">
+               
+                  <div class="big-vertical-block">
+                    <button type="button" class="btn-label">Схема укладки</button>
+                    <div id="schematic"></div>
+        
+                  </div>
+               
+              </div>
+            </div>
+        
+              
+
+              <div class="big-vertical-block">
+                <button type="button" class="btn-label">Розрахунок</button>
+                <div class="header-blockP">
+          
+                  <div class="text-columns">
+                    <div class="label">Матеріали:</div>
+            
+                    <div class="form-row">
+                        <div class="label">Грунтовка</div>
+                        <div class="label">_ л.</div>
+                    </div>
+                    <div class="form-row">
+                        <div class="label">Підложка</div>
+                        <div class="label" >_ м².</div>
+                    </div>
+                    <div class="form-row">
+                        <div class="label">Клей</div>
+                        <div class="label">_ л.</div>
+                    </div>
+                    <div class="form-row">
+                      <div class="label">Ламінат</div>
+                      <div class="label" id="blocksNum">_ шт.</div>
+                      <div class="labelP" id="packText">_ п.</div>
+                  </div>
+                  <div class="form-row">
+                    <div class="label">Витрачені матеріали</div>
+                    <div class="label">_ комп.</div>
+                </div>
+                </div>
+  
+                <div class="text-columns">
+                  <div class="label">Роботи:</div>
+          
+                  <div class="form-row">
+                      <div class="label">1.Грунтовка основи укладки</div>
+                      <div class="label">_ м².</div>
+                  </div>
+                  <div class="form-row">
+                      <div class="label">2.Укладка підложки</div>
+                      <div class="label" >_ м².</div>
+                  </div>
+                  <div class="form-row">
+                      <div class="label">3.Укладка ламінату</div>
+                      <div class="label">_ м².</div>
+                  </div>
+               
+            
+                </div>
+
+                <div class="text-columns">
+                  <div class="label">Ціна:</div>
+          
+                  <div class="form-row">
+                      <div class="label">1.Сума</div>
+                      <div class="label" id="TotalPrice">_ грн.</div>
+                  </div>
+                
+               
+            
+                </div>
+                </div>
+
+                <div class="form-row">
+                  <button type="button" id="Lenght_of_the_room" class="custom-btn">Зберегти розрахунок</button>
+                  <button type="button" id="Lenght_of_the_room" class="custom-btn">Додати розрахунок</button>
+                  <button type="button" id="Lenght_of_the_room" class="custom-btn">Обрати постачальника</button>
+                  <button type="button" id="Lenght_of_the_room" class="custom-btn">Обрати підрядника</button>
+              </div>
+            
+            </div>
+              
+    </main>
+    
+    
+    <script>
+      document.getElementById('calculate').addEventListener('click', function() {
+        var roomWidth = 7.5;
+  var roomLength = 5;
+  var blockWidth = 1;
+  var blockLength = 0.5;
+var PriceData=70;
+          //var roomWidth = document.getElementById('width_of_the_room').value;
+         // var roomLength = document.getElementById('Lenght_of_the_room').value;
+          //var blockWidth = document.getElementById('width_of_the_block').value;
+          //var blockLength = document.getElementById('Lenght_of_the_block').value;
+         // var PriceData=document.getElementById('priceForPack').value;
+          var layingMethod = document.getElementById('Lay_Way').value;
+          var rowMargin = document.getElementById('Row_Bias').value;
+          var blocksNum = document.getElementById('blocksNum');
+          var packNum = document.getElementById('pack').value;
+          var packText = document.getElementById('packText');
+      var PriceText=document.getElementById('TotalPrice');
+          var SRoom = roomLength * roomWidth;
+
+  var Sblock = blockLength * blockWidth;
+
+  var addition = 0;
+  if (Sblock >= 0.36) {
+    addition = 10;
+  } else {
+    addition = 5;
+  }
+
+  var amountNeeded = Math.ceil((SRoom / Sblock) + ((SRoom / Sblock) * addition / 100));
+
+var PackRes=amountNeeded/packNum
+packText.textContent=Math.ceil(PackRes)+"п.";
+blocksNum.textContent=Math.ceil(amountNeeded)+"шт.";
+PriceText.textContent=Math.ceil(PriceData*PackRes)
+var newDiv = document.createElement("div");
+var magnifier=50;
+// Apply styles to the div
+var newDiv = document.createElement("div");
+      newDiv.style.width = (roomWidth * magnifier) + "px";
+      newDiv.style.height = (roomLength * magnifier) + "px";
+      newDiv.style.position = "relative";
+    
+      document.getElementById("schematic").appendChild(newDiv);
+    
+      function placeBlock(Yop, left, width, height, text) {
+    var block = document.createElement("div");
+    block.style.position = "absolute";
+    block.style.top = Yop + "px";
+    block.style.left = left + "px";
+    block.style.width = width + "px";
+    block.style.height = height + "px";
+    block.style.backgroundColor = "grey";
+    block.textContent = text;
+    block.style.border = "0.5px solid black"; 
+    newDiv.appendChild(block);
+  }
+  var count=0
+      var Yop = 0;
+      
+      var left = 0;
+      var leftOver = { width: 0, height: 0 };
+      //var remainingWidth = 0;
+    if (layingMethod=="по ширині"){
+      if (blockLength>blockWidth){
+        var temp=blockLength
+blockLength=blockWidth;
+blockWidth=temp;
+      }
+    }else{
+      if (blockLength<blockWidth){
+        var temp=blockLength
+blockLength=blockWidth;
+blockWidth=temp;
+      }
+    }
+      for (let index = 0; index < amountNeeded; index++) {
+    var actualBlockWidth = leftOver.width > 0 ? leftOver.width : blockWidth * magnifier;
+    var actualBlockHeight = leftOver.height > 0 ? leftOver.height : blockLength * magnifier;
+
+    // Reset leftOver for this iteration
+    leftOver.width = 0;
+    leftOver.height = 0;
+
+    // Check if the block needs to be cut horizontally
+    if (left + actualBlockWidth > roomWidth * magnifier) {
+        leftOver.width = (left + actualBlockWidth) - (roomWidth * magnifier);
+        actualBlockWidth = (roomWidth * magnifier) - left;
+    }
+
+    // Check if the block needs to be cut vertically
+    if (Yop + actualBlockHeight > roomLength * magnifier) {
+        leftOver.height = (Yop + actualBlockHeight) - (roomLength * magnifier);
+        actualBlockHeight = (roomLength * magnifier) - Yop;
+    }
+    count++
+    // Place the block
+    placeBlock(Yop, left, actualBlockWidth, actualBlockHeight, count);
+
+    // Update left and check if we need to move to a new row
+    left += actualBlockWidth;
+    if (left >= roomWidth * magnifier) {
+        left = 0;
+        Yop += blockLength * magnifier;
+    }
+
+    // Check if we have exceeded the vertical limit
+    if (Yop >= roomLength * magnifier) {
+        break;
+    }
+}
+    
+      });
+  </script>
+    <script src="https://kit.fontawesome.com/27347c8600.js" crossorigin="anonymous"></script>
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js " integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js " integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k " crossorigin="anonymous "></script>
+ 
+</body>
+
+</html>
